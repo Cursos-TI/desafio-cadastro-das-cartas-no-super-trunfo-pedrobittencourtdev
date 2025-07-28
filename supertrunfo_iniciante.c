@@ -21,14 +21,14 @@
 int main(){
 
     char letraEstado[50], nomeCidade[50], codigo[50];
-    float pib, area, populacao;
-    int pontosTuristicos;
+    float pib, area;
+    int pontosTuristicos, populacao;
 
     //Variaveis da segunda carta.
     
     char letraEstado2[50], nomeCidade2[50], codigo2[50];
-    float pib2, area2, populacao2;
-    int pontosTuristicos2;
+    float pib2, area2;
+    int pontosTuristicos2, populacao2;
 
     printf("Carta 1: \n"); 
 
@@ -44,7 +44,7 @@ int main(){
     scanf("%s", nomeCidade);
 
     printf("Digite a população da cidade: ");
-    scanf("%f", &populacao);
+    scanf("%d", &populacao);
 
     printf("Digite a área da cidade em km²: ");
     scanf ("%f", &area);
@@ -69,7 +69,7 @@ int main(){
     scanf("%s", nomeCidade2);
 
     printf("Digite a população da cidade: ");
-    scanf("%f", &populacao2);
+    scanf("%d", &populacao2);
 
     printf("Digite a área da cidade em km²: ");
     scanf ("%f", &area2);
@@ -91,11 +91,11 @@ int main(){
 
     printf("Nome da cidade: %s \n", nomeCidade );
 
-    printf("População: %f \n", populacao);
+    printf("População: %d \n", populacao);
 
-    printf("Área: %f km² \n", area);
+    printf("Área: %.2f km² \n", area);
 
-    printf("PIB: %f bilhões de reais \n", pib);
+    printf("PIB: %.2f bilhões de reais \n", pib);
 
     printf("Número de pontos turísticos: %d \n", pontosTuristicos);
 
@@ -109,11 +109,11 @@ int main(){
 
     printf("Nome da cidade: %s \n", nomeCidade2 );
 
-    printf("População: %f \n", populacao2);
+    printf("População: %d \n", populacao2);
 
     printf("Área: %f km² \n", area2);
 
-    printf("PIB: %f bilhões de reais \n", pib2);
+    printf("PIB: %.2f bilhões de reais \n", pib2);
 
     printf("Número de pontos turísticos: %d \n", pontosTuristicos2);
 
