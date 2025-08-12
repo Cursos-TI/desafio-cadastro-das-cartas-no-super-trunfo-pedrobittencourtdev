@@ -37,7 +37,7 @@ int main(){
 
     
     printf("Escreva uma letra: ");
-    scanf("%s", letraEstado);
+    scanf(" %c", letraEstado);
 
     printf("Escreva o código da carta: ");
     scanf("%s", codigo);
@@ -62,7 +62,7 @@ int main(){
      printf("Carta 2: \n"); 
     
     printf("Escreva uma letra: ");
-    scanf("%s", letraEstado2);
+    scanf(" %c", letraEstado2);
 
     printf("Escreva o código da carta: ");
     scanf("%s", codigo2);
@@ -87,7 +87,7 @@ int main(){
 
     printf("Carta 1: \n");
      
-    printf("Estado: %s \n", letraEstado);
+    printf("Estado: %c \n", letraEstado);
 
     printf("Código: %s \n", codigo);
 
@@ -109,7 +109,7 @@ int main(){
 
     // Calculando o PIB per Capita!
 
-    pibPerCapita1 = (pib/populacao)*100000000; //O valor 1000000000 é para não dar valor muito baixo.
+    pibPerCapita1 = (pib/populacao)*1000000000.0; //O valor 1000000000.0 é para converter em bilhões.
 
     printf("PIB per Capita: %.2f reais \n", pibPerCapita1);
 
@@ -117,7 +117,7 @@ int main(){
 
     printf("Carta 2: \n");
 
-    printf("Estado: %s \n", letraEstado2);
+    printf("Estado: %c \n", letraEstado2);
 
     printf("Código: %s \n", codigo2);
 
@@ -139,9 +139,9 @@ int main(){
 
     // Calculando o PIB per Capita!
 
-    pibPerCapita2 =  (pib2/populacao2)*100000000;
+    pibPerCapita2 =  (pib2/populacao2)*1000000000.0;
 
-    printf("PIB per Capita: %f reais \n", pibPerCapita2);
+    printf("PIB per Capita: %.2f reais \n", pibPerCapita2);
 
     return 0;
 
