@@ -14,6 +14,9 @@
  
 // Número de Pontos Turísticos
 
+// Ao final é feita uma comparação entre as cartas para saber quem foi a vencedora.
+
+
 
 #include <stdio.h>
 
@@ -161,7 +164,7 @@ int main(){
     superPoder2 = populacao2 + area2 + pib2 + pontosTuristicos2 + (1/densidadePopulacional2) + pibPerCapita2;
 
 
-    printf("Comparação de cartas: \n");
+    printf("***Comparação de cartas**** \n");
 
     
     printf("População: Carta %d venceu(%d) \n",(populacao>populacao2) ? carta1:carta2 ,  
