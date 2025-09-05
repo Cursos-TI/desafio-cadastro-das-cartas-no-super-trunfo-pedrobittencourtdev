@@ -19,11 +19,12 @@
 
 
 #include <stdio.h>
+#include <string.h>
 
 
 int main(){
 
-    char letraEstado[50], nomeCidade[50], codigo[50];
+    char letraEstado[50], nomeCidade[50], codigo[50], buffer[50];
     float pib, area, densidadePopulacional1, pibPerCapita1;
     int pontosTuristicos, carta1;
     unsigned long int populacao;
@@ -44,18 +45,23 @@ int main(){
 
     printf("***SUPER TRUNFO EM C*** \n");
 
+    printf("===========================================\n");
+
+    // Adicionando a carta 1:
+
     printf("Carta 1: \n"); 
 
-
-    
     printf("Escreva uma letra: ");
-    scanf(" %c", letraEstado);
+    fgets(letraEstado, 50, stdin);
+    letraEstado[strcspn(letraEstado, "\n")] = 0;
 
     printf("Escreva o código da carta: ");
-    scanf("%s", codigo);
+    fgets(codigo, 50, stdin);
+    codigo[strcspn(codigo, "\n")] = 0;
 
     printf("Escreva o nome da cidade (Ou a sigla): ");
-    scanf("%s", nomeCidade);
+    fgets(nomeCidade, 50, stdin);
+    nomeCidade[strcspn(nomeCidade, "\n")] = 0;
 
     printf("Digite a população da cidade: ");
     scanf("%lu", &populacao);
@@ -68,19 +74,26 @@ int main(){
 
     printf("Escreva a quantidade de pontos turísticos: ");
     scanf("%d", &pontosTuristicos);
+    fgets(buffer, sizeof(buffer), stdin); // Limpar o buffer do teclado
 
+    printf("===========================================\n");
+
+    
     // Adicionando a carta 2: 
 
-     printf("Carta 2: \n"); 
+    printf("Carta 2: \n"); 
     
     printf("Escreva uma letra: ");
-    scanf(" %c", letraEstado2);
+    fgets(letraEstado2, 50, stdin);
+    letraEstado2[strcspn(letraEstado2, "\n")] = 0;
 
     printf("Escreva o código da carta: ");
-    scanf("%s", codigo2);
+    fgets(codigo2, 50, stdin);
+    codigo2[strcspn(codigo2, "\n")] = 0;
 
-    printf("Escreva o nome da cidade(Ou a sigla): ");
-    scanf("%s", nomeCidade2);
+    printf("Escreva o nome da cidade (Ou a sigla): ");
+    fgets(nomeCidade2, 50, stdin);
+    nomeCidade2[strcspn(nomeCidade2, "\n")] = 0;
 
     printf("Digite a população da cidade: ");
     scanf("%lu", &populacao2);
@@ -94,7 +107,7 @@ int main(){
     printf("Escreva a quantidade de pontos turísticos: ");
     scanf("%d", &pontosTuristicos2);
 
-   
+   printf("===========================================\n");
     // Imprimindo o código acima: 
 
     printf("Carta 1: \n");
@@ -124,6 +137,8 @@ int main(){
     pibPerCapita1 = (pib/populacao)*1000000000.0; //O valor 1000000000.0 é para converter em bilhões.
 
     printf("PIB per Capita: %.2f reais \n", pibPerCapita1);
+
+    printf("===========================================\n");
 
     // Imprimindo o código 2: 
 
@@ -163,34 +178,90 @@ int main(){
     superPoder1 = populacao + area + pib + pontosTuristicos + (1/densidadePopulacional1) + pibPerCapita1;
     superPoder2 = populacao2 + area2 + pib2 + pontosTuristicos2 + (1/densidadePopulacional2) + pibPerCapita2;
 
+    printf("===========================================\n");
+
 
     printf("***Comparação de cartas**** \n");
 
     
-    printf("População: Carta %d venceu(%d) \n",(populacao>populacao2) ? carta1:carta2 ,  
-                                                (populacao>populacao2) ? 1:0);
+    printf("\nATRIBUTO: POPULAÇÃO\n");
+    printf("CARTA 1 %s (%s): %d", nomeCidade,letraEstado,populacao);
+    printf("\nCARTA 2 %s (%s): %d\n", nomeCidade2,letraEstado2,populacao2);
 
-    printf("Área: Carta %d venceu(%d) \n",(area>area2) ? carta1:carta2 ,  
-                                                (area>area2) ? 1:0);
+    if (populacao>populacao2) {
+        printf("CARTA 1 %s (%s) VENCEU!\n",nomeCidade,letraEstado);
+    }
+    else {
+        printf("CARTA 2 %s (%s) VENCEU!\n",nomeCidade2,letraEstado2);
+    }
 
-    printf("PIB: Carta %d venceu(%d) \n",(pib>pib2) ? carta1:carta2 ,  
-                                                (pib>pib2) ? 1:0);
+    printf("-------------------------------------------------------------------");
 
-    printf("Pontos Turísticos: Carta %d venceu(%d) \n",(pontosTuristicos>pontosTuristicos2) ? carta1:carta2 ,  
-                                                (pontosTuristicos>pontosTuristicos2) ? 1:0);
+    printf("\nATRIBUTO: ÁREA\n");
+    printf("CARTA 1 %s (%s): %f", nomeCidade,letraEstado,area);
+    printf("\nCARTA 2 %s (%s): %f\n", nomeCidade2,letraEstado2,area2);
 
-    printf("Densidade Populacional: Carta %d venceu(%d) \n",(densidadePopulacional1>densidadePopulacional2) ? carta1:carta2 ,  
-                                                (densidadePopulacional1>densidadePopulacional2) ? 1:0);
+    if (area>area2) {
+        printf("CARTA 1 %s (%s) VENCEU!\n",nomeCidade,letraEstado);
+    }
+    else {
+        printf("CARTA 2 %s (%s) VENCEU!\n",nomeCidade2,letraEstado2);
+    }
 
-    printf("PIB per Capita: Carta %d venceu(%d) \n",(pibPerCapita1>pibPerCapita2) ? carta1:carta2 ,  
-                                                (pibPerCapita1>pibPerCapita2) ? 1:0);
+    printf("-------------------------------------------------------------------");
 
-    printf("Super Poder: Carta %d venceu (%d) \n ", (superPoder1>superPoder2) ? carta1:carta2,
-                                                 (superPoder1>superPoder2) ? 1:0);
+    printf("\nATRIBUTO: PIB\n");
+    printf("CARTA 1 %s (%s): %f", nomeCidade,letraEstado,pib);
+    printf("\nCARTA 2 %s (%s): %f\n", nomeCidade2,letraEstado2,pib2);
 
+    if (pib>pib2) {
+        printf("CARTA 1 %s (%s) VENCEU!\n",nomeCidade,letraEstado);
+    }
+    else {
+        printf("CARTA 2 %s (%s) VENCEU!\n",nomeCidade2,letraEstado2);
+    }
+
+    printf("-------------------------------------------------------------------");
+
+    printf("\nATRIBUTO: PONTOS TURÍSTICOS\n");
+    printf("CARTA 1 %s (%s): %d", nomeCidade,letraEstado,pontosTuristicos);
+    printf("\nCARTA 2 %s (%s): %d\n", nomeCidade2,letraEstado2,pontosTuristicos2);
+
+    if (pontosTuristicos>pontosTuristicos2) {
+        printf("CARTA 1 %s (%s) VENCEU!\n",nomeCidade,letraEstado);
+    }
+    else {
+        printf("CARTA 2 %s (%s) VENCEU!\n",nomeCidade2,letraEstado2);
+    }
+
+    printf("-------------------------------------------------------------------");
+
+    printf("\nATRIBUTO: DENSIDADE POPULACIONAL\n");
+    printf("CARTA 1 %s (%s): %f", nomeCidade,letraEstado,densidadePopulacional1);
+    printf("\nCARTA 2 %s (%s): %f\n", nomeCidade2,letraEstado2,densidadePopulacional2);
+
+    if (densidadePopulacional1<densidadePopulacional2) {
+        printf("CARTA 1 %s (%s) VENCEU!\n",nomeCidade,letraEstado);
+    }
+    else{
+        printf("CARTA 2%s (%s) VENCEU!\n",nomeCidade2,letraEstado2);
+
+    }
+
+    printf("-------------------------------------------------------------------");
     
+    printf("\nATRIBUTO: PIB PER CAPITA\n");
+    printf("CARTA 1 %s (%s): %f", nomeCidade,letraEstado,pibPerCapita1);
+    printf("\nCARTA 2 %s (%s): %f\n", nomeCidade2,letraEstado2,pibPerCapita2);
 
-    return 0;
+    if (pibPerCapita1>pibPerCapita2) {
+        printf("CARTA 1 %s (%s) VENCEU!\n",nomeCidade,letraEstado);
+    }
+    else {
+        printf("CARTA 2 %s (%s) VENCEU!\n",nomeCidade2,letraEstado2);
+    }
 
+    printf("-------------------------------------------------------------------");
 
+return 0;  
 }
